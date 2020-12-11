@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   {{>headlinks}}
+</head>
+<body> 
+    {{>navbar}}
+
+    <!-- main header -->
+    <div class="container-fluid main_header">
+      <div class="row">
+          <div class="col-md-10 col-12 mx-auto">
+           
+              <div class="main_content">
+                <form class="tempform">
+                  <input type="text" id="cityname" placeholder="Enter Your City Name">
+                  <input type="submit" value="search" id="submitbtn">
+                </form>
+              </div>
+
+              <div class="tempinfo">
+                <div class="toplayer">
+                  <p id="day">Monday</p>
+                  <p id="todaydate">07 Dec</p>
+                </div>
+                <div class="mainlayer">
+                  <p id="cityout">Get Output Here</p>
+                  <div class="middlelayer data_hide">
+                    <p id="temp"><span id="temp_real_val">0</span><sup style="font-size: 4rem;">o</sup>C</p>
+                    <p id="temp_status"><i class="fa fa-cloud" area-hidden="true"></i></p>
+                  </div>
+                </div>
+
+              </div>
+
+          </div>
+      </div>
+    </div> 
+    
+    <!-- footer code -->
+    {{>footer}}
+
+  <script src="js/main.js"></script>
+  <script>
+    
+
+    const getCurrentDay = ()=>{
+    var weekdays = ["Sunday","Monday","Tuesday","Wednsday","Thursday","Friday","Saturday"];
+    let currentTime = new Date();
+    let days = weekdays[currentTime.getDay()];
+    let day = document.getElementById('day');
+
+    day.innerText = days;
+};
+
+    const getCurrentTime = ()=>{
+    var months = ["January","Febrary","March","April","May","June","July","August","September","October","November","December"];
+    var nowTime = new Date();
+    var month = months[nowTime.getMonth()];
+    var date = nowTime.getDate();
+    
+    let todaydate = document.getElementById('todaydate');
+    todaydate.innerText = `${date} ${month}  `;
+
+    };
+getCurrentDay();
+getCurrentTime();
+  </script>
+</body>
+</html>
